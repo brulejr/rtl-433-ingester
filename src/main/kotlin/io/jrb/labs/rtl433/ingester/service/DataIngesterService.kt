@@ -1,7 +1,6 @@
 package io.jrb.labs.rtl433.ingester.service
 
 import io.jrb.labs.commons.logging.LoggerDelegate
-import io.jrb.labs.rtl433.ingester.datafill.EventMapper
 import org.springframework.context.SmartLifecycle
 import org.springframework.stereotype.Service
 import java.util.concurrent.atomic.AtomicBoolean
@@ -9,7 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 @Service
 class DataIngesterService(
     private val mqttIngester: MqttIngester,
-    private val eventMapper: EventMapper
+    private val dscSecurityEventMapper: DscSecurityEventMapper
 ) : SmartLifecycle {
 
     private val log by LoggerDelegate()
@@ -24,11 +23,11 @@ class DataIngesterService(
     override fun start() {
         log.info("Starting {}...", _serviceName)
         mqttIngester.connect()
-        mqttIngester.subscribe().subscribe { message ->
-            log.info("Received: {}", message)
-            val mapped = eventMapper.map(message)
-            log.info("Mapped: {}", mapped)
-        }
+        mqttIngester.subscribe()
+            .map { it -> dscSecurityEventMapper.map(it) }
+            .subscribe { message ->
+                log.info("Received: {}", message)
+            }
         _running.getAndSet(true)
     }
 

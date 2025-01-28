@@ -12,7 +12,16 @@ application.ingester:
     topic: rtl_433/46b62720dff5/events
   mapper:
     catalog:
+      2181534: office-window
+      2256987: kitchen-sliding-door
+      2258011: master-bedroom-window-east
+      2258267: kitchen-sink-window
+      2295899: master-bedroom-window-southwest
+      2299227: master-bathroom-window
+      2321243: guest-room-window-east
       2321755: front-door
       2881949: kitchen-door
+      2893213: guest-room-window-north
       3040669: garage-overhead
-      2321243: guest-room-window-east
+      3054749: master-bedroom-window-southeast
+      3062685: living-room-window-northwest
