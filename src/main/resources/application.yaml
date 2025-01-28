@@ -1,0 +1,18 @@
+spring.application.name: rtl-433-ingester
+
+server.port: 4000
+
+management:
+  security.enabled: false
+
+application.ingester:
+  mqtt:
+    broker-url: tcp://10.10.100.22:1883
+    client-id: rtl-433-ingester
+    topic: rtl_433/46b62720dff5/events
+  mapper:
+    catalog:
+      2321755: front-door
+      2881949: kitchen-door
+      3040669: garage-overhead
+      2321243: guest-room-window-east
