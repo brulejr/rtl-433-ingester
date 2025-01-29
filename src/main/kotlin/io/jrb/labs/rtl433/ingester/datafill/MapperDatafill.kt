@@ -4,5 +4,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "application.ingester.mapper")
 data class MapperDatafill(
-    val catalog: Map<String, String>
+    val dsc: Map<String, String>
 )

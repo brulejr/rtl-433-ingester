@@ -24,7 +24,7 @@ class DataIngesterService(
         log.info("Starting {}...", _serviceName)
         mqttIngester.connect()
         mqttIngester.subscribe()
-            .map { it -> dscSecurityEventMapper.map(it) }
+            .map { dscSecurityEventMapper.map(it) }
             .subscribe { message ->
                 log.info("Received: {}", message)
             }
