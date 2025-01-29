@@ -34,7 +34,7 @@ class MqttIngester(
             mqttClient?.subscribe(datafill.topic) { _, message ->
                 try {
                     val payload = String(message.payload)
-                    val data = objectMapper.readValue<Rtl433Data>(payload, Rtl433Data::class.java)
+                    val data = objectMapper.readValue(payload, Rtl433Data::class.java)
                     sink.next(data)
                 } catch (e: Exception) {
                     log.error(e.message, e)

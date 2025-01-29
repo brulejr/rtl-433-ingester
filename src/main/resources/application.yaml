@@ -11,7 +11,7 @@ application.ingester:
     client-id: rtl-433-ingester
     topic: rtl_433/46b62720dff5/events
   mapper:
-    catalog:
+    dscSecurity:
       2181534: office-window
       2256987: kitchen-sliding-door
       2258011: master-bedroom-window-east

@@ -12,8 +12,8 @@ class DscSecurityEventMapper(
 
     override fun map(inbound: Rtl433Data): Rtl433Data {
         return if (inbound is DscSecurity) {
-            if (datafill.dsc.containsKey(inbound.id)) {
-                inbound.copy(deviceName = datafill.dsc[inbound.id]!!)
+            if (datafill.dscSecurity.containsKey(inbound.id)) {
+                inbound.copy(deviceName = datafill.dscSecurity[inbound.id]!!)
             } else {
                 inbound.copy(deviceName = "UNKNOWN")
             }
