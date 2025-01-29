@@ -29,6 +29,10 @@ class MqttManager(
         mqttClient?.disconnect()
     }
 
+    fun source(): String {
+        return "MQTT"
+    }
+
     fun subscribe(): Flux<Rtl433Data> {
         return Flux.create { sink ->
             mqttClient?.subscribe(datafill.topic) { _, message ->
@@ -41,6 +45,10 @@ class MqttManager(
                 }
             }
         }
+    }
+
+    fun topic(): String {
+        return datafill.topic
     }
 
 }
