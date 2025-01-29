@@ -1,4 +1,4 @@
-package io.jrb.labs.rtl433.ingester.service
+package io.jrb.labs.rtl433.ingester.service.mqtt
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.jrb.labs.commons.logging.LoggerDelegate
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 import reactor.core.publisher.Flux
 
 @Component
-class MqttIngester(
+class MqttManager(
     private val datafill: MqttDatafill,
     private val objectMapper: ObjectMapper
 ) {

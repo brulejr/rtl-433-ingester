@@ -1,4 +1,4 @@
-package io.jrb.labs.rtl433.ingester.service
+package io.jrb.labs.rtl433.ingester.service.mapper
 
 import io.jrb.labs.rtl433.ingester.datafill.MapperDatafill
 import io.jrb.labs.rtl433.ingester.model.DscSecurity

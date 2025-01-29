@@ -1,13 +1,15 @@
-package io.jrb.labs.rtl433.ingester.service
+package io.jrb.labs.rtl433.ingester.service.ingester
 
 import io.jrb.labs.commons.logging.LoggerDelegate
+import io.jrb.labs.rtl433.ingester.service.mapper.DscSecurityEventMapper
+import io.jrb.labs.rtl433.ingester.service.mqtt.MqttManager
 import org.springframework.context.SmartLifecycle
 import org.springframework.stereotype.Service
 import java.util.concurrent.atomic.AtomicBoolean
 
 @Service
 class DataIngesterService(
-    private val mqttIngester: MqttIngester,
+    private val mqttManager: MqttManager,
     private val dscSecurityEventMapper: DscSecurityEventMapper
 ) : SmartLifecycle {
 
@@ -22,8 +24,8 @@ class DataIngesterService(
 
     override fun start() {
         log.info("Starting {}...", _serviceName)
-        mqttIngester.connect()
-        mqttIngester.subscribe()
+        mqttManager.connect()
+        mqttManager.subscribe()
             .map { dscSecurityEventMapper.map(it) }
             .subscribe { message ->
                 log.info("Received: {}", message)
@@ -33,7 +35,7 @@ class DataIngesterService(
 
     override fun stop() {
         log.info("Stopping {}...", _serviceName)
-        mqttIngester.disconnect()
+        mqttManager.disconnect()
         _running.getAndSet(false)
     }
 
