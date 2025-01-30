@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo
     JsonSubTypes.Type(value = FordTpms::class, name = FordTpms.MODEL),
     JsonSubTypes.Type(value = HyundaiTpms::class, name = HyundaiTpms.MODEL),
     JsonSubTypes.Type(value = RegencyRemote::class, name = RegencyRemote.MODEL),
+    JsonSubTypes.Type(value = RenaultTpms::class, name = RenaultTpms.MODEL),
     JsonSubTypes.Type(value = SchraderTpms::class, name = SchraderTpms.MODEL)
 )
 interface Rtl433Data {
