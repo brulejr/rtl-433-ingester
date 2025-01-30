@@ -64,3 +64,8 @@ application.ingester:
         name: living-room-window-northwest
         area: LivingRoom
         type: window
+    schraderTpms:
+      62582B:
+        name: gmc-sierra
+        area: Vehicle
+        type: vehicle
