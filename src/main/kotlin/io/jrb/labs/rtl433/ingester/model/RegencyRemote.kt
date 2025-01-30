@@ -4,13 +4,13 @@ import java.time.Instant
 
 data class RegencyRemote(
 
-    override val model: String = "Regency-Remote",
-
-    override val id: String?,
+    val device: Device?,
 
     val time: Instant?,
 
-    val deviceName: String?,
+    override val model: String = "Regency-Remote",
+
+    override val id: String?,
 
     val channel: Int?,
 

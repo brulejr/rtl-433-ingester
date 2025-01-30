@@ -6,13 +6,13 @@ import java.time.Instant
 
 data class DscSecurity(
 
-    override val model: String = "DSC-Security",
-
-    override val id: String?,
+    val device: Device?,
 
     val time: Instant?,
 
-    val device: Device?,
+    override val model: String = "DSC-Security",
+
+    override val id: String?,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
     val closed: Boolean?,

@@ -3,25 +3,32 @@ package io.jrb.labs.rtl433.ingester.model
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.Instant
 
-data class SchraderTpms(
+data class HyundaiTpms(
 
     val device: Device?,
 
     val time: Instant?,
 
-    override val model: String = "Schrader-EG53MA4",
+    override val model: String = "Hyundai-VDO",
 
     val type: String?,
 
-    val flags: String?,
-
     override val id: String?,
 
-    @JsonProperty("pressure_kPa")
-    val pressureKpa: Double,
+    val state: Int?,
 
-    @JsonProperty("temperature_F")
-    val temperatureF: Double,
+    val flags: Int?,
+
+    val repeat: Int?,
+
+    @JsonProperty("pressure_kPa")
+    val pressureKpa: Double?,
+
+    @JsonProperty("temperature_C")
+    val temperatureC: Double?,
+
+    @JsonProperty("maybe_battery")
+    val maybeBattery: Int?,
 
     val mic: String?
 

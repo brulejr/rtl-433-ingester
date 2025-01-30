@@ -11,7 +11,7 @@ data class BmwGen3Tpms(
 
     val time: Instant?,
 
-    val deviceName: String?,
+    val device: Device?,
 
     val type: String?,
 
