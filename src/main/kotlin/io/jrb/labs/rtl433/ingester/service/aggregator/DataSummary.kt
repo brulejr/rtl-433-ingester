@@ -14,10 +14,10 @@ class DataSummary {
     }
 
     private fun processDscSecurity(message: DscSecurity) {
-        if (message.deviceName == "UNKNOWN") {
+        if (message.device?.type == "UNKNOWN") {
             dscSecurity.unknown(message.id!!)
         } else {
-            dscSecurity.known(message.deviceName!!)
+            dscSecurity.known(message.device?.name!!)
         }
     }
 

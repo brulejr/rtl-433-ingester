@@ -3,7 +3,6 @@ package io.jrb.labs.rtl433.ingester.model
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.Instant
-import java.util.*
 
 data class DscSecurity(
 
@@ -13,7 +12,7 @@ data class DscSecurity(
 
     val time: Instant?,
 
-    val deviceName: String?,
+    val device: Device?,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
     val closed: Boolean?,
