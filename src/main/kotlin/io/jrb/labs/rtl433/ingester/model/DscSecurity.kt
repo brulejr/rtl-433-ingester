@@ -10,7 +10,7 @@ data class DscSecurity(
 
     val time: Instant?,
 
-    override val model: String = "DSC-Security",
+    override val model: String = MODEL,
 
     override val id: String?,
 
@@ -48,4 +48,8 @@ data class DscSecurity(
 
     val mic: String?
 
-) : Rtl433Data
+) : Rtl433Data {
+    companion object {
+        const val MODEL: String = "DSC-Security"
+    }
+}

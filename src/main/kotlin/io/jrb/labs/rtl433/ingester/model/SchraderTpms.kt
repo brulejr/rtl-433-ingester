@@ -9,7 +9,7 @@ data class SchraderTpms(
 
     val time: Instant?,
 
-    override val model: String = "Schrader-EG53MA4",
+    override val model: String = MODEL,
 
     val type: String?,
 
@@ -25,4 +25,8 @@ data class SchraderTpms(
 
     val mic: String?
 
-) : Rtl433Data
+) : Rtl433Data {
+    companion object {
+        const val MODEL: String = "Schrader-EG53MA4"
+    }
+}

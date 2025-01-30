@@ -9,7 +9,7 @@ data class CitroenTpms(
 
     val time: Instant?,
 
-    override val model: String = "Citroen",
+    override val model: String = MODEL,
 
     val type: String?,
 
@@ -32,4 +32,8 @@ data class CitroenTpms(
 
     val mic: String?
 
-) : Rtl433Data
+) : Rtl433Data {
+    companion object {
+        const val MODEL: String = "Citroen"
+    }
+}

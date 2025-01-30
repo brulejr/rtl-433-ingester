@@ -9,7 +9,7 @@ data class HyundaiTpms(
 
     val time: Instant?,
 
-    override val model: String = "Hyundai-VDO",
+    override val model: String = MODEL,
 
     val type: String?,
 
@@ -32,4 +32,8 @@ data class HyundaiTpms(
 
     val mic: String?
 
-) : Rtl433Data
+) : Rtl433Data {
+    companion object {
+        const val MODEL: String = "Hyundai-VDO"
+    }
+}

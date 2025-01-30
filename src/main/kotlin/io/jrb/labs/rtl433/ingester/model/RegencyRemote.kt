@@ -8,7 +8,7 @@ data class RegencyRemote(
 
     val time: Instant?,
 
-    override val model: String = "Regency-Remote",
+    override val model: String = MODEL,
 
     override val id: String?,
 
@@ -20,4 +20,8 @@ data class RegencyRemote(
 
     val mic: String?
 
-) : Rtl433Data
+) : Rtl433Data {
+    companion object {
+        const val MODEL: String = "Regency-Remote"
+    }
+}

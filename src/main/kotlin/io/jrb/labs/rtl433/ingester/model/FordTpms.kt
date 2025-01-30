@@ -10,7 +10,7 @@ data class FordTpms(
 
     val time: Instant?,
 
-    override val model: String = "Ford",
+    override val model: String = MODEL,
 
     val type: String?,
 
@@ -37,4 +37,8 @@ data class FordTpms(
 
     val mic: String?
 
-) : Rtl433Data
+) : Rtl433Data {
+    companion object {
+        const val MODEL: String = "Ford"
+    }
+}

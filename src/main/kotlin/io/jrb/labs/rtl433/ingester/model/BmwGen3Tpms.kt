@@ -5,7 +5,7 @@ import java.time.Instant
 
 data class BmwGen3Tpms(
 
-    override val model: String = "BMW-GEN3",
+    override val model: String = MODEL,
 
     override val id: String?,
 
@@ -33,4 +33,8 @@ data class BmwGen3Tpms(
 
     val mic: String?
 
-) : Rtl433Data
+) : Rtl433Data {
+    companion object {
+        const val MODEL: String = "BMW-GEN3"
+    }
+}
