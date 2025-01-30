@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo
     property = "model"
 )
 @JsonSubTypes(
+    JsonSubTypes.Type(value = BmwGen3Tpms::class, name = "BMW-GEN3"),
     JsonSubTypes.Type(value = DscSecurity::class, name = "DSC-Security"),
     JsonSubTypes.Type(value = SchraderTpms::class, name = "Regency-Remote"),
     JsonSubTypes.Type(value = SchraderTpms::class, name = "Schrader-EG53MA4")
