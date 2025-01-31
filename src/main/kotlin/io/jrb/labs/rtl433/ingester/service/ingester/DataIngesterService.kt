@@ -7,8 +7,7 @@ import io.jrb.labs.commons.logging.LoggerDelegate
 import io.jrb.labs.rtl433.ingester.messages.DataMessage
 import io.jrb.labs.rtl433.ingester.messages.DataMessageType
 import io.jrb.labs.rtl433.ingester.model.Rtl433Data
-import io.jrb.labs.rtl433.ingester.service.mapper.DscSecurityEventMapper
-import io.jrb.labs.rtl433.ingester.service.mapper.SchraderTpmsEventMapper
+import io.jrb.labs.rtl433.ingester.service.mapper.GeneralEventMapper
 import io.jrb.labs.rtl433.ingester.service.mqtt.MqttManager
 import org.springframework.context.SmartLifecycle
 import org.springframework.stereotype.Service
@@ -17,8 +16,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 @Service
 class DataIngesterService(
     private val mqttManager: MqttManager,
-    private val dscSecurityEventMapper: DscSecurityEventMapper,
-    private val schraderTpmsEventMapper: SchraderTpmsEventMapper,
+    private val generalEventMapper: GeneralEventMapper,
     private val eventBus: EventBus
 ) : SmartLifecycle {
 
@@ -35,8 +33,7 @@ class DataIngesterService(
         log.info("Starting {}...", _serviceName)
         mqttManager.connect()
         mqttManager.subscribe()
-            .map { dscSecurityEventMapper.map(it) }
-            .map { schraderTpmsEventMapper.map(it) }
+            .map { generalEventMapper.map(it) }
             .subscribe { data -> processMessage(data) }
         eventBus.sendEvent(SystemEvent("service.start", _serviceName))
         _running.getAndSet(true)
