@@ -21,16 +21,18 @@ class GeneralEventMapper(
     }
 
     private fun map(inbound: DscSecurity): Rtl433Data {
-        return if (datafill.dscSecurity.containsKey(inbound.id)) {
-            inbound.copy(device = datafill.dscSecurity[inbound.id])
+        val myDatafill = datafill.dscSecurity
+        return if (myDatafill != null && myDatafill.containsKey(inbound.id)) {
+            inbound.copy(device = myDatafill[inbound.id])
         } else {
             inbound.copy(device = Device.UNKNOWN_DEVICE)
         }
     }
 
     private fun map(inbound: SchraderTpms): Rtl433Data {
-        return if (datafill.schraderTpms.containsKey(inbound.id)) {
-            inbound.copy(device = datafill.dscSecurity[inbound.id])
+        val myDatafill = datafill.schraderEG53MA4Tpms
+        return if (myDatafill != null && myDatafill.containsKey(inbound.id)) {
+            inbound.copy(device = myDatafill[inbound.id])
         } else {
             inbound.copy(device = Device.UNKNOWN_DEVICE)
         }

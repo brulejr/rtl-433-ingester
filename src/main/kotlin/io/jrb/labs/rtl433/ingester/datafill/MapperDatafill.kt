@@ -5,6 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "application.ingester.mapper")
 data class MapperDatafill(
-    val dscSecurity: Map<String, Device>,
-    val schraderTpms: Map<String, Device>
+    val dscSecurity: Map<String, Device>?,
+    val schraderEG53MA4Tpms: Map<String, Device>?
 )

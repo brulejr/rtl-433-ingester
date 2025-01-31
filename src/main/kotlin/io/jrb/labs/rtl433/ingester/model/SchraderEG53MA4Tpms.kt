@@ -3,7 +3,7 @@ package io.jrb.labs.rtl433.ingester.model
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.Instant
 
-data class SchraderTpms(
+data class SchraderEG53MA4Tpms(
 
     val device: Device?,
 
@@ -20,13 +20,13 @@ data class SchraderTpms(
     @JsonProperty("pressure_kPa")
     val pressureKpa: Double,
 
-    @JsonProperty("temperature_C")
-    val temperatureC: Double,
+    @JsonProperty("temperature_F")
+    val temperatureF: Double,
 
     val mic: String?
 
 ) : Rtl433Data {
     companion object {
-        const val MODEL: String = "Schrader"
+        const val MODEL: String = "Schrader-EG53MA4"
     }
 }
