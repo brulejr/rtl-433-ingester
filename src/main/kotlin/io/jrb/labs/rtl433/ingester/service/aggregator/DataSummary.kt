@@ -1,34 +1,18 @@
 package io.jrb.labs.rtl433.ingester.service.aggregator
 
-import io.jrb.labs.rtl433.ingester.model.DscSecurity
 import io.jrb.labs.rtl433.ingester.model.Rtl433Data
-import io.jrb.labs.rtl433.ingester.model.SchraderTpms
 
 class DataSummary {
 
-    val dscSecurity: CollectionSummary = CollectionSummary()
-    val schraderTpms: CollectionSummary = CollectionSummary()
+    val summary: MutableMap<String, CollectionSummary> = mutableMapOf()
 
     fun aggregate(data: Rtl433Data) {
-        when (data) {
-            is DscSecurity -> processData(data)
-            is SchraderTpms -> processData(data)
-        }
-    }
-
-    private fun processData(message: DscSecurity) {
-        if (message.device?.type == "UNKNOWN") {
-            dscSecurity.unknown(message.id!!)
+        val model = data.model
+        if (!summary.containsKey(model)) { summary[model] = CollectionSummary() }
+        if (data.device?.type == null || data.device?.type == "UNKNOWN") {
+            summary[model]?.unknown(data.id!!)
         } else {
-            dscSecurity.known(message.device?.name!!)
-        }
-    }
-
-    private fun processData(message: SchraderTpms) {
-        if (message.device?.type == "UNKNOWN") {
-            schraderTpms.unknown(message.id!!)
-        } else {
-            schraderTpms.known(message.device?.name!!)
+            summary[model]?.known(data.device?.name!!)
         }
     }
 

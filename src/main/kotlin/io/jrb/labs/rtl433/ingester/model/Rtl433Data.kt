@@ -22,4 +22,5 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo
 interface Rtl433Data {
     val model: String
     val id: String?
+    val device: Device?
 }

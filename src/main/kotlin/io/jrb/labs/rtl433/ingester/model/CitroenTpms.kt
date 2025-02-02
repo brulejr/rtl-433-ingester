@@ -5,11 +5,11 @@ import java.time.Instant
 
 data class CitroenTpms(
 
-    val device: Device?,
-
-    val time: Instant?,
+    override val device: Device?,
 
     override val model: String = MODEL,
+
+    val time: Instant?,
 
     val type: String?,
 

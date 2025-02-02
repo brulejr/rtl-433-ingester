@@ -5,7 +5,7 @@ import java.time.Instant
 
 data class SchraderEG53MA4Tpms(
 
-    val device: Device?,
+    override val device: Device?,
 
     val time: Instant?,
 

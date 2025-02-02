@@ -4,7 +4,7 @@ import java.time.Instant
 
 data class RegencyRemote(
 
-    val device: Device?,
+    override val device: Device?,
 
     val time: Instant?,
 

@@ -5,7 +5,7 @@ import java.time.Instant
 
 data class HyundaiTpms(
 
-    val device: Device?,
+    override val device: Device?,
 
     val time: Instant?,
 

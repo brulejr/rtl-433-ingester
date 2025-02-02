@@ -6,7 +6,7 @@ import java.time.Instant
 
 data class DscSecurity(
 
-    val device: Device?,
+    override val device: Device?,
 
     val time: Instant?,
 

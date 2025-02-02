@@ -5,7 +5,7 @@ import java.time.Instant
 
 data class RenaultTpms(
 
-    val device: Device?,
+    override val device: Device?,
 
     val time: Instant?,
 

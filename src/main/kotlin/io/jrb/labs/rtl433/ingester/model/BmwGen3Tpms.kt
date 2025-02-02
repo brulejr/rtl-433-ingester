@@ -5,13 +5,13 @@ import java.time.Instant
 
 data class BmwGen3Tpms(
 
+    override val device: Device?,
+
     override val model: String = MODEL,
 
     override val id: String?,
 
     val time: Instant?,
-
-    val device: Device?,
 
     val type: String?,
 
