@@ -41,7 +41,7 @@ class MqttManager(
                     val data = objectMapper.readValue(payload, Rtl433Data::class.java)
                     sink.next(data)
                 } catch (e: Exception) {
-                    log.error(e.message, e)
+                    log.error("{}, payload = {}", e.message, String(message.payload), e)
                 }
             }
         }
