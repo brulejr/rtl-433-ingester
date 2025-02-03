@@ -44,3 +44,14 @@ Start the service by running the following
 ```bash
 docker compose up -d
 ```
+
+# Build
+To build the container for this application, run the following for **docker**:
+```bash
+./gradlew --console=plain -no-daemon jibDockerBuild
+```
+Or, the following for **podman**:
+```bash
+./gradlew --console=plain -no-daemon jibDockerBuild -Djib.dockerClient.executable=$(which podman)
+```
+This will generate the container in your local **docker** / **podman** repository.

@@ -3,6 +3,7 @@ plugins {
 	kotlin("plugin.spring") version "1.9.25"
 	id("org.springframework.boot") version "3.4.2"
 	id("io.spring.dependency-management") version "1.1.7"
+	id("com.google.cloud.tools.jib") version "3.4.4"
 }
 
 group = "io.jrb.labs"
@@ -46,4 +47,25 @@ kotlin {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+jib {
+	from {
+		image = "openjdk:21-jdk-slim"
+		platforms {
+			platform {
+				architecture= "amd64"
+				os = "linux"
+			}
+		}
+	}
+	to {
+		image = "brulejr/rtl-433-ingester"
+		tags = setOf("latest", "$version")
+	}
+	container {
+		ports = listOf("4000")
+		creationTime = "USE_CURRENT_TIMESTAMP"
+		jvmFlags = listOf("-Xms256m", "-Xmx512m", "-Dspring.config.additional-location=file:/config/")
+	}
 }

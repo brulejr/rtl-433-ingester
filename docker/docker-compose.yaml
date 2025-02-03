@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  rtl_433_ingester:
+    container_name: rtl_433_ingester
+    image: brulejr/rtl-433-ingester
+    ports:
+      - "4000:4000"
+    environment:
+      PROFILE: "prod"
+    volumes:
+      - ./application-prod.yml:/config/application-prod.yml:z
+
+volumes:
+  config:

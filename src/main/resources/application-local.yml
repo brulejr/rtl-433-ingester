@@ -1,0 +1,75 @@
+application.ingester:
+  mqtt:
+    broker-url: tcp://10.10.100.22:1883
+    topic: rtl_433/46b62720dff5/events
+  mapper:
+    dscSecurity:
+      2181534:
+        name: office-window
+        area: Office
+        type: window
+      2256987:
+        name: kitchen-sliding-door
+        area: Kitchen
+        type: door
+      2258011:
+        name: master-bedroom-window-east
+        area: MasterBedroom
+        type: window
+      2258267:
+        name: kitchen-sink-window
+        area: Kitchen
+        type: window
+      2295899:
+        name: master-bedroom-window-southwest
+        area: MasterBedroom
+        type: window
+      2299227:
+        name: master-bathroom-window
+        area: MasterBedroom
+        type: window
+      2321243:
+        name: guest-room-window-east
+        area: GuestRoom
+        type: window
+      2321755:
+        name: front-door
+        area: Foyer
+        type: door
+      2881949:
+        name: kitchen-door
+        area: Kitchen
+        type: door
+      2893213:
+        name: guest-room-window-north
+        area: GuestRoom
+        type: window
+      3040669:
+        name: garage-overhead
+        area: Garage
+        type: door
+      3054749:
+        name: master-bedroom-window-southeast
+        area: MasterBedroom
+        type: window
+      3062685:
+        name: living-room-window-northwest
+        area: LivingRoom
+        type: window
+    schraderEG53MA4Tpms:
+      62517F:
+        name: gmc-sierra
+        area: Vehicle
+        type: vehicle
+      6257F0:
+        name: gmc-sierra
+        area: Vehicle
+        type: vehicle
+      62582B:
+        name: gmc-sierra
+        area: Vehicle
+        type: vehicle
+      62DB0F:
+        name: gmc-sierra
+        area: Vehicle
+        type: vehicle
