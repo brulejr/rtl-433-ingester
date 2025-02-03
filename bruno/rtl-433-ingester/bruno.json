@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "rtl-433-ingester",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
