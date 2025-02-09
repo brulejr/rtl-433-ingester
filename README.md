@@ -48,10 +48,24 @@ docker compose up -d
 # Build
 To build the container for this application, run the following for **docker**:
 ```bash
-./gradlew --console=plain -no-daemon jibDockerBuild
+./gradlew --console=plain -no-daemon clean build jibDockerBuild
 ```
 Or, the following for **podman**:
 ```bash
-./gradlew --console=plain -no-daemon jibDockerBuild -Djib.dockerClient.executable=$(which podman)
+./gradlew --console=plain -no-daemon clean build jibDockerBuild -Djib.dockerClient.executable=$(which podman)
 ```
 This will generate the container in your local **docker** / **podman** repository.
+
+# Publish
+To publish to a local docker registry, `docker.brulenet.dev`, run the following commands.
+
+Obtain the image id from local docker.
+```bash
+docker image ls
+```
+
+Run the following to push the previously-built image to the registry.
+```bash
+podman push <imageid> docker://docker.brulenet.dev/brulejr/rtl-433-ingester:<version>
+```
+replacing `<imageid>` with the image id from the previous command and `<versio>` with the release version number
