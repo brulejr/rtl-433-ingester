@@ -1,4 +1,16 @@
-# RTL433 Setup
+# Overiew
+This project watches an MQTT topic on which the `rtl_433` publishes raw 433HMz events. It then does the following with
+these events:
+- Matches the event to expect data models (Unknown events are logged and dumped)
+- Filters them based upon a catalog of known devices
+- Broadcasts the filtered devices to a new MQTT topic on which systems like Home Assistant can listen
+
+This software is designed to run on a Raspberry Pi within Docker.
+
+# Getting Started
+This section shows how to setup the `rtl_433` software within Docker as well as build / publish this project.
+
+### RTL433 Setup
 Create the directory structure
 ```bash
 mkdir -p rtl_433/mosquitto
@@ -45,7 +57,7 @@ Start the service by running the following
 docker compose up -d
 ```
 
-# Build
+### Build
 To build the container for this application, run the following for **docker**:
 ```bash
 ./gradlew --console=plain -no-daemon clean build jibDockerBuild
@@ -56,7 +68,7 @@ Or, the following for **podman**:
 ```
 This will generate the container in your local **docker** / **podman** repository.
 
-# Publish
+### Publish
 To publish to a local docker registry, `docker.brulenet.dev`, run the following commands.
 
 Obtain the image id from local docker.
@@ -68,4 +80,10 @@ Run the following to push the previously-built image to the registry.
 ```bash
 podman push <imageid> docker://docker.brulenet.dev/brulejr/rtl-433-ingester:<version>
 ```
-replacing `<imageid>` with the image id from the previous command and `<versio>` with the release version number
+replacing `<imageid>` with the image id from the previous command and `<version>` with the release version number
+
+# Resources
+
+Podman / Docker
+- [StackOverflow - How to push an image to the Docker registry using podman](https://stackoverflow.com/questions/64199116/how-to-push-an-image-to-the-docker-registry-using-podman)
+- [Medium - Interacting with Docker Registry without Docker Client](https://blog.pentesteracademy.com/interacting-with-docker-registry-without-docker-client-2d6cd08ff244)
