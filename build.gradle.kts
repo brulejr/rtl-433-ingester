@@ -32,10 +32,15 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
 
-	testImplementation("org.apache.commons:commons-lang3:3.12.0")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("app.cash.turbine:turbine:1.2.0")
+	testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
 	testImplementation("io.projectreactor:reactor-test")
+	testImplementation("io.mockk:mockk:1.13.12")
+	testImplementation("org.apache.commons:commons-lang3:3.12.0")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+	testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.1")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

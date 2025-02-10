@@ -5,7 +5,7 @@ import java.time.Instant
 import java.util.UUID
 import java.util.concurrent.ThreadLocalRandom
 
-class TestUtils {
+interface TestUtils {
 
     fun randomBoolean() = ThreadLocalRandom.current().nextBoolean()
 
