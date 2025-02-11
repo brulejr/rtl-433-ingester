@@ -1,7 +1,6 @@
 package io.jrb.labs.commons.eventbus
 
 import app.cash.turbine.test
-import io.jrb.labs.common.test.TestUtils
 import io.mockk.junit5.MockKExtension
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
@@ -11,7 +10,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(MockKExtension::class)
-class EventBusTest : TestUtils {
+class EventBusTest : EventUtils {
 
     private lateinit var eventBus: EventBus
 
@@ -71,15 +70,4 @@ class EventBusTest : TestUtils {
         }
     }
 
-    private fun createDataEvent(): DataEvent<String> {
-        return DataEvent(
-            source = randomString(),
-            name = randomString(),
-            data = randomString()
-        )
-    }
-
-    private fun createSystemEvent(): SystemEvent {
-        return SystemEvent(name = randomString())
-    }
 }

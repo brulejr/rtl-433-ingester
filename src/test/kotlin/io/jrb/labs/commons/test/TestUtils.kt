@@ -1,8 +1,8 @@
-package io.jrb.labs.common.test
+package io.jrb.labs.commons.test
 
 import org.apache.commons.lang3.RandomStringUtils
 import java.time.Instant
-import java.util.UUID
+import java.util.*
 import java.util.concurrent.ThreadLocalRandom
 
 interface TestUtils {

@@ -1,6 +1,6 @@
 package io.jrb.labs.commons.logging
 
-import io.jrb.labs.common.test.TestUtils
+import io.jrb.labs.commons.test.TestUtils
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
