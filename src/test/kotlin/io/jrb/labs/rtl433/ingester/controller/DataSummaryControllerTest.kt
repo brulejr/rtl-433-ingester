@@ -24,11 +24,6 @@ class DataSummaryControllerTest : TestUtils {
     private lateinit var dataSummaryController: DataSummaryController
     private lateinit var webTestClient: WebTestClient
 
-    private lateinit var mockSummary: DataSummary
-
-    private lateinit var data1: DscSecurity
-    private lateinit var data2: DscSecurity
-
     @BeforeEach
     fun setup() {
         dataAggregatorService = mockk()
@@ -36,17 +31,37 @@ class DataSummaryControllerTest : TestUtils {
 
         webTestClient = WebTestClient.bindToController(dataSummaryController).build()
 
-        mockSummary = DataSummary()
-        data1 = DscSecurity(id = randomString())
-        mockSummary.aggregate(data1)
-        data2 = DscSecurity(id = randomString(), device = Device("A", "TYPE", "AREA"))
-        mockSummary.aggregate(data2)
-
-        every { dataAggregatorService.getDataSummary() } returns mockSummary
     }
 
     @Test
-    fun testGetDataSummary_SUCCESS() {
+    fun testGetDataSummary_NoData_SUCCESS() {
+
+        val mockSummary = DataSummary()
+
+        every { dataAggregatorService.getDataSummary() } returns mockSummary
+
+        webTestClient.get().uri("/summary")
+            .exchange()
+            .expectAll(
+                { spec -> spec.expectStatus().isOk },
+                { spec -> spec.expectBody(DataSummary::class.java).consumeWith { response -> log.info("{}", response )} },
+                { spec -> spec.expectBody()
+                    .jsonPath("$.summary").isEmpty()
+                }
+            )
+    }
+
+    @Test
+    fun testGetDataSummary_MultiData_SUCCESS() {
+
+        val mockSummary = DataSummary()
+        val data1 = DscSecurity(id = randomString())
+        mockSummary.aggregate(data1)
+        val data2 = DscSecurity(id = randomString(), device = Device("A", "TYPE", "AREA"))
+        mockSummary.aggregate(data2)
+
+        every { dataAggregatorService.getDataSummary() } returns mockSummary
+
         webTestClient.get().uri("/summary")
             .exchange()
             .expectAll(
