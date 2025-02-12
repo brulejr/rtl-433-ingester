@@ -16,6 +16,8 @@ interface TestUtils {
 
     fun randomGuid(): UUID = UUID.randomUUID()
 
+    fun randomDouble(upperLimit: Double = 1000.00) = ThreadLocalRandom.current().nextDouble(1.00, upperLimit)
+
     fun randomInt(upperLimit: Int = 1000) = ThreadLocalRandom.current().nextInt(1, upperLimit)
 
     fun <T> randomList(maxSize: Int = 3, supplier: () -> T): List<T> {
