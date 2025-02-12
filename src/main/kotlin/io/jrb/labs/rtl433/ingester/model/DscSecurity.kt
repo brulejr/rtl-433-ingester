@@ -6,47 +6,47 @@ import java.time.Instant
 
 data class DscSecurity(
 
-    override val device: Device?,
+    override val device: Device? = null,
 
-    val time: Instant?,
+    val time: Instant? = null,
 
     override val model: String = MODEL,
 
-    override val id: String?,
+    override val id: String? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val closed: Boolean?,
+    val closed: Boolean? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val event: Boolean?,
+    val event: Boolean? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val tamper: Boolean?,
+    val tamper: Boolean? = null,
 
     @JsonProperty("battery_ok")
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val batteryOk: Boolean?,
+    val batteryOk: Boolean? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val xactivity: Boolean?,
+    val xactivity: Boolean? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val xtamper1: Boolean?,
+    val xtamper1: Boolean? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val xtamper2: Boolean?,
+    val xtamper2: Boolean? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val exception: Boolean?,
+    val exception: Boolean? = null,
 
-    val esn: String?,
+    val esn: String? = null,
 
-    val status: Int?,
+    val status: Int? = null,
 
     @JsonProperty("status_hex")
-    val statusHex: String?,
+    val statusHex: String? = null,
 
-    val mic: String?
+    val mic: String? = null
 
 ) : Rtl433Data {
     companion object {

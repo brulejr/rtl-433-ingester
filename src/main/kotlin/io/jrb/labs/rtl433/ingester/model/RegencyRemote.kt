@@ -4,21 +4,21 @@ import java.time.Instant
 
 data class RegencyRemote(
 
-    override val device: Device?,
+    override val device: Device? = null,
 
-    val time: Instant?,
+    val time: Instant? = null,
 
     override val model: String = MODEL,
 
-    override val id: String?,
+    override val id: String? = null,
 
-    val channel: Int?,
+    val channel: Int? = null,
 
-    val command: String?,
+    val command: String? = null,
 
-    val value: String?,
+    val value: String? = null,
 
-    val mic: String?
+    val mic: String? = null
 
 ) : Rtl433Data {
     companion object {

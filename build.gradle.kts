@@ -35,6 +35,7 @@ dependencies {
 
 	testImplementation("app.cash.turbine:turbine:1.2.0")
 	testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
+	testImplementation("com.ninja-squad:springmockk:3.1.1")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("io.mockk:mockk:1.13.12")
 	testImplementation("org.apache.commons:commons-lang3:3.12.0")

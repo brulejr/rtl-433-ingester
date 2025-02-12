@@ -5,33 +5,33 @@ import java.time.Instant
 
 data class BmwGen3Tpms(
 
-    override val device: Device?,
+    override val device: Device? = null,
 
     override val model: String = MODEL,
 
-    override val id: String?,
+    override val id: String? = null,
 
-    val time: Instant?,
+    val time: Instant? = null,
 
-    val type: String?,
+    val type: String? = null,
 
-    val flags: String?,
+    val flags: String? = null,
 
     @JsonProperty("pressure_kPa")
-    val pressureKpa: Double?,
+    val pressureKpa: Double? = null,
 
     @JsonProperty("temperature_C")
-    val temperatureC: Double?,
+    val temperatureC: Double? = null,
 
-    val flags1: Int?,
+    val flags1: Int? = null,
 
-    val flags2: Int?,
+    val flags2: Int? = null,
 
-    val flags3: Int?,
+    val flags3: Int? = null,
 
-    val msg: String?,
+    val msg: String? = null,
 
-    val mic: String?
+    val mic: String? = null
 
 ) : Rtl433Data {
     companion object {

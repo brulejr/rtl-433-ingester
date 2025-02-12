@@ -6,36 +6,36 @@ import java.time.Instant
 
 data class FordTpms(
 
-    override val device: Device?,
+    override val device: Device? = null,
 
-    val time: Instant?,
+    val time: Instant? = null,
 
     override val model: String = MODEL,
 
-    val type: String?,
+    val type: String? = null,
 
-    override val id: String?,
+    override val id: String? = null,
 
     @JsonProperty("pressure_PSI")
-    val pressureKpa: Double?,
+    val pressureKpa: Double? = null,
 
     @JsonProperty("temperature_C")
-    val temperatureC: Double?,
+    val temperatureC: Double? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val moving: Boolean?,
+    val moving: Boolean? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-    val learn: Boolean?,
+    val learn: Boolean? = null,
 
-    val code: String?,
+    val code: String? = null,
 
-    val unknown: String?,
+    val unknown: String? = null,
 
     @JsonProperty("unknown_3")
-    val unknown3: String?,
+    val unknown3: String? = null,
 
-    val mic: String?
+    val mic: String? = null
 
 ) : Rtl433Data {
     companion object {

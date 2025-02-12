@@ -5,32 +5,32 @@ import java.time.Instant
 
 data class HyundaiTpms(
 
-    override val device: Device?,
+    override val device: Device? = null,
 
-    val time: Instant?,
+    val time: Instant? = null,
 
     override val model: String = MODEL,
 
-    val type: String?,
+    val type: String? = null,
 
-    override val id: String?,
+    override val id: String? = null,
 
-    val state: Int?,
+    val state: Int? = null,
 
-    val flags: Int?,
+    val flags: Int? = null,
 
-    val repeat: Int?,
+    val repeat: Int? = null,
 
     @JsonProperty("pressure_kPa")
-    val pressureKpa: Double?,
+    val pressureKpa: Double? = null,
 
     @JsonProperty("temperature_C")
-    val temperatureC: Double?,
+    val temperatureC: Double? = null,
 
     @JsonProperty("maybe_battery")
-    val maybeBattery: Int?,
+    val maybeBattery: Int? = null,
 
-    val mic: String?
+    val mic: String? = null
 
 ) : Rtl433Data {
     companion object {
