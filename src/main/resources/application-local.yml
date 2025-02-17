@@ -1,7 +1,7 @@
 application.ingester:
   mqtt:
-    broker-url: tcp://10.10.100.22:1883
-    topic: rtl_433/46b62720dff5/events
+    broker-url: tcp://10.10.30.23:1883
+    topic: rtl_433/04dc5b173331/events
   mapper:
     dscSecurity:
       2181534:

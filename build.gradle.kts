@@ -76,6 +76,10 @@ jib {
 				architecture= "amd64"
 				os = "linux"
 			}
+			platform {
+				architecture= "arm64/v8"
+				os = "linux"
+			}
 		}
 	}
 	to {
